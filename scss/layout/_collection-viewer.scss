@@ -1,13 +1,47 @@
 .collection-viewer {
     position: absolute;
     top: 30px;
+    left: 0;
 
     width: 100%;
     background: $offwhite;
-    height: 100px;
+    height: fit-content;
     border: 1px solid $palegrey;
     box-shadow: 0 0 10px $shadow;
 
     border-radius: 3px;
+    h3 {
+        margin: auto;
+        text-align: center;
+    }
 
+}
+
+.collection-selector {
+    margin: 10px auto;
+    align-content: center;
+    text-align: center;
+    select {
+        width: 250px;
+    }
+}
+
+.selected-collection {
+    margin: 10px auto;
+}
+
+#delete-collection {
+    // Position and size
+    display: block;
+    margin: 10px auto;
+
+    // Colours/style
+    background: $red;
+    border: 1px solid $palegrey;
+    border-radius: 3px;
+    padding: 5px;
+    &:hover {
+        background: darken($red, 20%);
+    }
+    cursor: pointer;
 }

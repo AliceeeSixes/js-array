@@ -1,0 +1,32 @@
+#image-tile-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.image-tile {
+    position: relative;
+    border: 1px solid $palegrey;
+    border-radius: 3px;
+    box-shadow: 0 0 5px $shadow;
+
+    .delete-tile {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: $red;
+
+        padding: 0;
+        margin: 0;
+        background: transparent;
+        border: none;
+
+        &:hover {
+            color: darken($red, 20%);
+        }
+
+        cursor: pointer;
+    }
+}

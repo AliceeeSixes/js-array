@@ -1,18 +1,21 @@
 .tabs {
     position: absolute;
     top: 0;
-    z-index: 2;
+    left: 0;
+    z-index: 1;
 
     .tab {
-        height: 30px;
+        height: 29px;
         width: 80px;
         text-align: center;
         align-content: center;
         border: 1px solid $palegrey;
 
         &.current {
+            position: relative;
             border-bottom: none;
-            height: 32px;
+            height: 30px;
+            top: 1px;
         }
     }
 }

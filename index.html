@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Array Project</title>
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/application.css" />
 </head>
 
@@ -13,7 +13,7 @@
 <body>
     <header>
         <div id="header__inner">
-            <h1>Header</h1>
+            <h1>Image Browser</h1>
         </div>
     </header>
 
@@ -33,29 +33,38 @@
             <div class="title">Image Viewer</div>
 
 
+            
+
+            <div id="image-viewport__container">
+            <div id="image-viewport"></div>
             <div id="image-aspect-ratio__buttons">
-                <button onclick="setImageDimensions(200,200)">1:1</button>
+                <button class="selected" onclick="setImageDimensions(200,200)">1:1</button>
                 <button onclick="setImageDimensions(300,200)">3:2</button>
-                <button onclick="setImageDimensions(400,300)">4:3</button>
+                <button onclick="setImageDimensions(240,180)">4:3</button>
                 <button onclick="setImageDimensions(320,180)">16:9</button>
             </div>
-
-
-            <div id="image-viewport"></div>
+            </div>
 
             <div id="email-addresses">
+                <label for="selected-email">Select an email address</label>
+                <div id="email-select">
+                    <select id="selected-email">
+                        <option value="none">No collections created</option>
+                    </select>
+                </div>
+
+
                 <label for="add-new-email">Add new email address</label>
                 <div id="add-new-email">
                     <input type="text" id="email"></input>
-                    <button onclick="addNewEmail()">Add</button>
+                    <button onclick="addNewEmail()">+</button>
                 </div>
 
             </div>
 
-            <div id="image-viewport__buttons">
+            <div id="image-viewer__buttons">
                 <button onclick="getImage()">Generate New Image</button>
-                <button>Add To Selected Collection</button>
-                <button></button>
+                <button onclick="saveToCollection()">Add To Selected Collection</button>
 
             </div>
 
@@ -68,10 +77,22 @@
             
 
             <div class="title">Manage Collections</div>
-            <div class="collection-selector">
-                <select>
-                    <option value="None">Select an email address</option>
-                </select>
+
+
+
+            <div class="selected-collection">
+                <h3 id="selected-collection__heading">Selected Collection:</h3>
+                <div class="collection-selector">
+                    <select id="viewed-collection">
+                        <option value="none">No collections created</option>
+                    </select>
+                </div>
+                <button id="delete-collection" onclick="deleteCollection()">Delete this collection</button>
+
+                <div id="image-tile-container">
+
+
+                </div>
 
             </div>
 
