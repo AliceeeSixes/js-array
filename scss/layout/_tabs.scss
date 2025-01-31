@@ -1,0 +1,18 @@
+.tabs {
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    .tab {
+        height: 30px;
+        width: 80px;
+        text-align: center;
+        align-content: center;
+        border: 1px solid $palegrey;
+
+        &.current {
+            border-bottom: none;
+            height: 32px;
+        }
+    }
+}

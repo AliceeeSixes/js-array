@@ -1,0 +1,143 @@
+body {
+  background: #d6d6d6; }
+
+header {
+  background: #eeeeee;
+  border-bottom: 1px solid #d6d6d6; }
+
+* {
+  font-family: sans-serif;
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; }
+
+button:hover {
+  background: #d6d6d6; }
+
+header {
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+
+#header__inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  color: #111111;
+  text-transform: uppercase; }
+
+main {
+  position: relative;
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+  margin-top: 20px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  background: #d6d6d6; }
+
+.image-viewer {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  background: #eeeeee;
+  height: fit-content;
+  border: 1px solid #d6d6d6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding-bottom: 20px;
+  border-radius: 3px; }
+
+#image-viewport {
+  width: 200px;
+  height: 200px;
+  margin: 30px auto;
+  background: #111111; }
+
+#image-viewport__buttons {
+  width: 600px;
+  margin: auto;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 20px;
+  border: 2px solid #d6d6d6;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: #d6d6d6; }
+  #image-viewport__buttons button {
+    flex: 1 1 0;
+    border: 1px solid #777777; }
+
+#image-aspect-ratio__buttons {
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  gap: 20px; }
+  #image-aspect-ratio__buttons button {
+    flex: 1 1 0;
+    border: 1px solid #777777; }
+
+#email-addresses {
+  width: fit-content;
+  margin: auto;
+  padding: 20px 0;
+  text-align: center; }
+  #email-addresses #add-new-email {
+    display: flex;
+    gap: 0; }
+    #email-addresses #add-new-email input {
+      margin: 0;
+      border-radius: 3px 0 0 3px;
+      border: 1px solid #777777; }
+    #email-addresses #add-new-email button {
+      margin: 0;
+      border-radius: 0 3px 3px 0;
+      border: 1px solid #777777; }
+
+.collection-viewer {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  background: #eeeeee;
+  height: 100px;
+  border: 1px solid #d6d6d6;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 3px; }
+
+.title {
+  width: 100%;
+  text-align: center;
+  border-bottom: 1px solid #d6d6d6;
+  padding: 10px;
+  font-size: 1.2em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+
+.tabs {
+  position: absolute;
+  top: 0;
+  z-index: 2; }
+  .tabs .tab {
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    align-content: center;
+    border: 1px solid #d6d6d6; }
+    .tabs .tab.current {
+      border-bottom: none;
+      height: 32px; }
+
+/*# sourceMappingURL=application.css.map */

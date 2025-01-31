@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Array Project</title>
+
+
+    <link rel="stylesheet" href="css/application.css" />
+</head>
+
+
+<body>
+    <header>
+        <div id="header__inner">
+            <h1>Header</h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- Buttons to focus tabs -->
+        <div class="tabs">
+            <button class="tab" id="image-tab" onclick="focusTab('images')">Images</button>
+            <button class="tab" id="collection-tab" onclick="focusTab('collections')">Collections</button>
+
+        </div>
+
+        <!-- Section for viewing/adding NEW images -->
+        <div class="image-viewer">
+            <!-- Button to focus tab -->
+            
+
+            <div class="title">Image Viewer</div>
+
+
+            <div id="image-aspect-ratio__buttons">
+                <button onclick="setImageDimensions(200,200)">1:1</button>
+                <button onclick="setImageDimensions(300,200)">3:2</button>
+                <button onclick="setImageDimensions(400,300)">4:3</button>
+                <button onclick="setImageDimensions(320,180)">16:9</button>
+            </div>
+
+
+            <div id="image-viewport"></div>
+
+            <div id="email-addresses">
+                <label for="add-new-email">Add new email address</label>
+                <div id="add-new-email">
+                    <input type="text" id="email"></input>
+                    <button onclick="addNewEmail()">Add</button>
+                </div>
+
+            </div>
+
+            <div id="image-viewport__buttons">
+                <button onclick="getImage()">Generate New Image</button>
+                <button>Add To Selected Collection</button>
+                <button></button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Section for viewing/managing EXISTING collections -->
+         <div class="collection-viewer">
+            <!-- Button to focus tab -->
+            
+
+            <div class="title">Manage Collections</div>
+            <div class="collection-selector">
+                <select>
+                    <option value="None">Select an email address</option>
+                </select>
+
+            </div>
+
+         </div>
+
+
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

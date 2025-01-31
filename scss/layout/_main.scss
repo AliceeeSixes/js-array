@@ -1,0 +1,18 @@
+main {
+    // Size/position
+    position: relative;
+    width: 90%;
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+
+
+    // Flex settings
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+
+    // Colours/style
+    background: $palegrey;
+}

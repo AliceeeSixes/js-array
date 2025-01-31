@@ -1,0 +1,95 @@
+.image-viewer {
+    position: absolute;
+    top: 30px;
+
+    width: 100%;
+    background: $offwhite;
+    height: fit-content;
+    border: 1px solid $palegrey;
+    box-shadow: 0 0 10px $shadow;
+    padding-bottom: 20px;
+
+    border-radius: 3px;
+
+
+}
+
+
+#image-viewport {
+    width: 200px;
+    height: 200px;
+    margin: 30px auto;
+    background: $offblack;
+}
+
+
+#image-viewport__buttons {
+    // Sizing/position
+    width: 600px;
+    margin: auto;
+    padding: 10px 20px;
+
+    // Flex settings
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 20px;
+
+
+    // Colours/style
+    border: 2px solid $palegrey;
+    box-shadow: 0 0 5px $shadow;
+    background: $palegrey;
+
+    // Buttons
+    button {
+        flex: 1 1 0;
+        border: 1px solid $grey;
+    }
+}
+
+#image-aspect-ratio__buttons {
+    width: 600px;
+    margin: auto;
+    
+
+    // Flex settings
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+
+    // Buttons
+    button {
+        flex: 1 1 0;
+        border: 1px solid $grey;
+    }
+}
+
+
+#email-addresses {
+    width: fit-content;
+    margin: auto;
+    padding: 20px 0;
+    text-align: center;
+
+    #add-new-email {
+        display: flex;
+        gap: 0;
+        input {
+            margin: 0;
+            border-radius: 3px 0 0 3px;
+            border: 1px solid $grey;
+        }
+        button {
+            margin: 0;
+            border-radius: 0 3px 3px 0;
+            border: 1px solid $grey;
+        }
+    }
+}
