@@ -101,6 +101,7 @@ function deleteCollection(name) {
 // Add new email address
 
 function addNewEmail() {
+    $("#add-new-email").removeClass("error"); // Remove error class
     $("#addImageMessage").text(""); // Remove error messages related to adding images
     let email = $("#email").val();
     if (!validEmail(email)) {
@@ -116,6 +117,7 @@ function addNewEmail() {
         createNewCollection(email); // Create new collection
         $("#add-new-email button").html("&check;"); // Change + to tickmark to indicate success
         $("#emailMessage").text("Email address added!").removeClass("negative").addClass("positive").show();
+        
 
         generateDropdowns(); // Regenerate dropdown menus
 
@@ -145,7 +147,7 @@ $("#email").on("click", () => {
 // Save to collection
 
 function saveToCollection() {
-
+    $("#add-new-email").removeClass("error"); // Remove error class
     $("#emailMessage").text(""); // Remove error messages related to email addresses
 
     let selectedCollection = $("#selected-email").val(); // Get value of currently selected email address

@@ -44,7 +44,7 @@ header {
 
 main {
   position: relative;
-  width: 90%;
+  width: 100%;
   max-width: 1400px;
   margin: auto;
   margin-top: 20px;
@@ -53,6 +53,9 @@ main {
   gap: 20px;
   flex-direction: column;
   background: #e0e0e0; }
+  @media (min-width: 768px) {
+    main {
+      width: 90%; } }
 
 .image-viewer {
   position: absolute;
@@ -60,11 +63,15 @@ main {
   left: 0;
   width: 100%;
   background: white;
-  height: fit-content;
+  height: 100%;
   border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding-bottom: 20px;
+  min-height: 85vh;
   border-radius: 3px; }
+  @media (min-width: 768px) {
+    .image-viewer {
+      min-height: fit-content; } }
 
 #image-viewer__buttons {
   width: fit-content;
@@ -214,6 +221,10 @@ main {
     .ratio1-1 {
       width: 400px;
       height: 400px; } }
+  @media (min-width: 1200px) {
+    .ratio1-1 {
+      width: 500px;
+      height: 500px; } }
 
 .ratio3-2 {
   width: 300px;
@@ -226,6 +237,10 @@ main {
     .ratio3-2 {
       width: 600px;
       height: 400px; } }
+  @media (min-width: 1200px) {
+    .ratio3-2 {
+      width: 750px;
+      height: 500px; } }
 
 .ratio4-3 {
   width: 240px;
@@ -238,6 +253,10 @@ main {
     .ratio4-3 {
       width: 480px;
       height: 360px; } }
+  @media (min-width: 1200px) {
+    .ratio4-3 {
+      width: 600px;
+      height: 450px; } }
 
 .ratio16-9 {
   width: 320px;
@@ -250,6 +269,10 @@ main {
     .ratio16-9 {
       width: 640px;
       height: 360px; } }
+  @media (min-width: 1200px) {
+    .ratio16-9 {
+      width: 800px;
+      height: 450px; } }
 
 .error input,
 .error button {

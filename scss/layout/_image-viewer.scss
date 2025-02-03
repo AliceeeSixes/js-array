@@ -5,10 +5,14 @@
 
     width: 100%;
     background: white;
-    height: fit-content;
+    height: 100%;
     border: 1px solid $palegrey;
     box-shadow: 0 0 10px $shadow;
     padding-bottom: 20px;
+    min-height: 85vh;
+    @media (min-width: $break-small) {
+        min-height: fit-content;
+    }
 
     border-radius: 3px;
 
@@ -231,6 +235,10 @@
         width: 400px;
         height: 400px;
     }
+    @media (min-width: $break-large) {
+        width: 500px;
+        height: 500px;
+    }
 }
 .ratio3-2 {
     width: 300px;
@@ -242,6 +250,10 @@
     @media (min-width: $break-medium) {
         width: 600px;
         height: 400px;
+    }
+    @media (min-width: $break-large) {
+        width: 750px;
+        height: 500px;
     }
 }
 .ratio4-3 {
@@ -255,6 +267,10 @@
         width: 480px;
         height: 360px;
     }
+    @media (min-width: $break-large) {
+        width: 600px;
+        height: 450px;
+    }
 }
 .ratio16-9 {
     width: 320px;
@@ -266,6 +282,10 @@
     @media (min-width: $break-medium) {
         width: 640px;
         height: 360px;
+    }
+    @media (min-width: $break-large) {
+        width: 800px;
+        height: 450px;
     }
 }
 

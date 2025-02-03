@@ -1,11 +1,14 @@
 main {
     // Size/position
     position: relative;
-    width: 90%;
+    width: 100%;
     max-width: 1400px;
     margin: auto;
     margin-top: 20px;
     padding: 20px;
+    @media (min-width: $break-small) {
+        width: 90%;
+    }
 
 
     // Flex settings
