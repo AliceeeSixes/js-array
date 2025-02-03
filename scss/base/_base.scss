@@ -15,7 +15,8 @@ button:hover {
 }
 
 a,
-button {
+button,
+select {
     text-decoration: none;
     color: $offblack;
 }
@@ -23,4 +24,5 @@ button {
 
 select {
     border: 1px solid $grey;
+    background: white;
 }

@@ -18,12 +18,14 @@ button:hover {
   background: #e0e0e0; }
 
 a,
-button {
+button,
+select {
   text-decoration: none;
   color: #111111; }
 
 select {
-  border: 1px solid #9b9b9b; }
+  border: 1px solid #9b9b9b;
+  background: white; }
 
 header {
   width: 100%;
