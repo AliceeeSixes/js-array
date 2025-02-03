@@ -174,6 +174,8 @@ function generateFromCollection(collection) {
             let image = imagesArray[i]; // Get image object from collection
             console.log(`Image with url ${image.url} and dimensions ${image.dimensions}`); // Console log to make following easier
             let imageTile = generateImageTile(image); // Generate a new image tile from the image
+            // Set height and width
+            imageTile.addClass(image.dimensions[0]);
             $("#image-tile-container").append(imageTile); // Add new image tile to DOM
         }
     } else {

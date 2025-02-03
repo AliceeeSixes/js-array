@@ -8,7 +8,6 @@
 
 .image-tile {
     position: relative;
-    border: 1px solid $palegrey;
     border-radius: 3px 3px 0 0;
     box-shadow: 0 0 5px $shadow;
     margin-bottom: 20px;
@@ -40,6 +39,7 @@
         text-align: center;
         border: 1px solid $grey;
         border-radius: 0 0 3px 3px;
+        color: $offblack;
     }
     a {
         position: absolute;
@@ -47,6 +47,6 @@
         left: 0;
         height: 100%;
         width: 100%;
-        
+
     }
 }

@@ -118,54 +118,7 @@
         position: absolute;
         cursor: pointer;
     }
-    &.ratio1-1 {
-        width: 200px;
-        height: 200px;
-        @media (min-width: $break-small) {
-            width: 300px;
-            height: 300px;
-        }
-        @media (min-width: $break-medium) {
-            width: 400px;
-            height: 400px;
-        }
-    }
-    &.ratio3-2 {
-        width: 300px;
-        height: 200px;
-        @media (min-width: $break-small) {
-            width: 450px;
-            height: 300px;
-        }
-        @media (min-width: $break-medium) {
-            width: 600px;
-            height: 400px;
-        }
-    }
-    &.ratio4-3 {
-        width: 240px;
-        height: 180px;
-        @media (min-width: $break-small) {
-            width: 360px;
-            height: 270px;
-        }
-        @media (min-width: $break-medium) {
-            width: 480px;
-            height: 360px;
-        }
-    }
-    &.ratio16-9 {
-        width: 320px;
-        height: 180px;
-        @media (min-width: $break-small) {
-            width: 480px;
-            height: 270px;
-        }
-        @media (min-width: $break-medium) {
-            width: 640px;
-            height: 360px;
-        }
-    }
+
 
 }
 
@@ -195,15 +148,41 @@
         background: white;
         &:hover {
             background: $palegrey;
+            &::after,
+            &::before {
+                width: 20%;
+            }
         }
         box-shadow: 0 0 5px $shadow;
         border: 1px solid $grey;
         border-radius: 3px;
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            height: 2px;
+            width: 0;
+            display: block;
+            background: $blue;
+            transition: 0.3s ease;
+            padding: 0;
+            margin: auto;
+        }
+        &::after {
+            left: 50%;
+        }
+        &::before {
+            right: 50%;
+        }
 
 
         &.selected {
             box-shadow: 0 0 10px white;
-            border: none;
+            &::after,
+            &::before {
+                width: 50%;
+            }
         }
 
         cursor: pointer;
@@ -224,3 +203,53 @@
     }
 }
 
+
+// Classes for aspect ratios
+.ratio1-1 {
+    width: 200px;
+    height: 200px;
+    @media (min-width: $break-small) {
+        width: 300px;
+        height: 300px;
+    }
+    @media (min-width: $break-medium) {
+        width: 400px;
+        height: 400px;
+    }
+}
+.ratio3-2 {
+    width: 300px;
+    height: 200px;
+    @media (min-width: $break-small) {
+        width: 450px;
+        height: 300px;
+    }
+    @media (min-width: $break-medium) {
+        width: 600px;
+        height: 400px;
+    }
+}
+.ratio4-3 {
+    width: 240px;
+    height: 180px;
+    @media (min-width: $break-small) {
+        width: 360px;
+        height: 270px;
+    }
+    @media (min-width: $break-medium) {
+        width: 480px;
+        height: 360px;
+    }
+}
+.ratio16-9 {
+    width: 320px;
+    height: 180px;
+    @media (min-width: $break-small) {
+        width: 480px;
+        height: 270px;
+    }
+    @media (min-width: $break-medium) {
+        width: 640px;
+        height: 360px;
+    }
+}

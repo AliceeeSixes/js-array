@@ -130,50 +130,6 @@ main {
     left: 0;
     position: absolute;
     cursor: pointer; }
-  #image-viewport.ratio1-1 {
-    width: 200px;
-    height: 200px; }
-    @media (min-width: 768px) {
-      #image-viewport.ratio1-1 {
-        width: 300px;
-        height: 300px; } }
-    @media (min-width: 960px) {
-      #image-viewport.ratio1-1 {
-        width: 400px;
-        height: 400px; } }
-  #image-viewport.ratio3-2 {
-    width: 300px;
-    height: 200px; }
-    @media (min-width: 768px) {
-      #image-viewport.ratio3-2 {
-        width: 450px;
-        height: 300px; } }
-    @media (min-width: 960px) {
-      #image-viewport.ratio3-2 {
-        width: 600px;
-        height: 400px; } }
-  #image-viewport.ratio4-3 {
-    width: 240px;
-    height: 180px; }
-    @media (min-width: 768px) {
-      #image-viewport.ratio4-3 {
-        width: 360px;
-        height: 270px; } }
-    @media (min-width: 960px) {
-      #image-viewport.ratio4-3 {
-        width: 480px;
-        height: 360px; } }
-  #image-viewport.ratio16-9 {
-    width: 320px;
-    height: 180px; }
-    @media (min-width: 768px) {
-      #image-viewport.ratio16-9 {
-        width: 480px;
-        height: 270px; } }
-    @media (min-width: 960px) {
-      #image-viewport.ratio16-9 {
-        width: 640px;
-        height: 360px; } }
 
 #image-aspect-ratio__buttons {
   width: 100%;
@@ -193,9 +149,27 @@ main {
     cursor: pointer; }
     #image-aspect-ratio__buttons button:hover {
       background: #e0e0e0; }
+      #image-aspect-ratio__buttons button:hover::after, #image-aspect-ratio__buttons button:hover::before {
+        width: 20%; }
+    #image-aspect-ratio__buttons button::after, #image-aspect-ratio__buttons button::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      height: 2px;
+      width: 0;
+      display: block;
+      background: #8d8dff;
+      transition: 0.3s ease;
+      padding: 0;
+      margin: auto; }
+    #image-aspect-ratio__buttons button::after {
+      left: 50%; }
+    #image-aspect-ratio__buttons button::before {
+      right: 50%; }
     #image-aspect-ratio__buttons button.selected {
-      box-shadow: 0 0 10px white;
-      border: none; }
+      box-shadow: 0 0 10px white; }
+      #image-aspect-ratio__buttons button.selected::after, #image-aspect-ratio__buttons button.selected::before {
+        width: 50%; }
 
 #emailMessage {
   width: 100%;
@@ -206,6 +180,54 @@ main {
     color: #8dff8d; }
   #emailMessage.negative {
     color: #ff8d8d; }
+
+.ratio1-1 {
+  width: 200px;
+  height: 200px; }
+  @media (min-width: 768px) {
+    .ratio1-1 {
+      width: 300px;
+      height: 300px; } }
+  @media (min-width: 960px) {
+    .ratio1-1 {
+      width: 400px;
+      height: 400px; } }
+
+.ratio3-2 {
+  width: 300px;
+  height: 200px; }
+  @media (min-width: 768px) {
+    .ratio3-2 {
+      width: 450px;
+      height: 300px; } }
+  @media (min-width: 960px) {
+    .ratio3-2 {
+      width: 600px;
+      height: 400px; } }
+
+.ratio4-3 {
+  width: 240px;
+  height: 180px; }
+  @media (min-width: 768px) {
+    .ratio4-3 {
+      width: 360px;
+      height: 270px; } }
+  @media (min-width: 960px) {
+    .ratio4-3 {
+      width: 480px;
+      height: 360px; } }
+
+.ratio16-9 {
+  width: 320px;
+  height: 180px; }
+  @media (min-width: 768px) {
+    .ratio16-9 {
+      width: 480px;
+      height: 270px; } }
+  @media (min-width: 960px) {
+    .ratio16-9 {
+      width: 640px;
+      height: 360px; } }
 
 .collection-viewer {
   position: absolute;
@@ -264,13 +286,15 @@ main {
     transition: 0.3s ease;
     cursor: pointer; }
     .tabs .tab::after {
+      position: relative;
       width: 0;
       content: "";
       display: block;
       background: #8d8dff;
       height: 2px;
       margin: auto;
-      transition: 0.3s ease; }
+      transition: 0.3s ease;
+      bottom: -2px; }
     .tabs .tab:hover::after {
       width: 40%;
       content: "";
@@ -301,7 +325,6 @@ main {
 
 .image-tile {
   position: relative;
-  border: 1px solid #e0e0e0;
   border-radius: 3px 3px 0 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px; }
@@ -326,7 +349,8 @@ main {
     background: #e0e0e0;
     text-align: center;
     border: 1px solid #9b9b9b;
-    border-radius: 0 0 3px 3px; }
+    border-radius: 0 0 3px 3px;
+    color: #111111; }
   .image-tile a {
     position: absolute;
     top: 0;

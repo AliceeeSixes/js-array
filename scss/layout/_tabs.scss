@@ -12,6 +12,7 @@
         border: 1px solid $palegrey;
         transition: 0.3s ease;
         &::after {
+            position: relative;
             width: 0;
             content: "";
             display: block;
@@ -19,6 +20,7 @@
             height: 2px;
             margin: auto;
             transition: 0.3s ease;
+            bottom: -2px;
 
         }
         &:hover {
@@ -45,7 +47,7 @@
                 display: block;
                 background: $blue;
                 height: 2px;
-                margin: auto;
+                margin: auto; 
 
             }
         }
