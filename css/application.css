@@ -1,9 +1,9 @@
 body {
-  background: #d6d6d6; }
+  background: #e0e0e0; }
 
 header {
-  background: #eeeeee;
-  border-bottom: 1px solid #d6d6d6; }
+  background: white;
+  border-bottom: 1px solid #e0e0e0; }
 
 * {
   font-family: sans-serif;
@@ -15,7 +15,7 @@ body {
   height: 100vh; }
 
 button:hover {
-  background: #d6d6d6; }
+  background: #e0e0e0; }
 
 header {
   width: 100%;
@@ -42,16 +42,16 @@ main {
   display: flex;
   gap: 20px;
   flex-direction: column;
-  background: #d6d6d6; }
+  background: #e0e0e0; }
 
 .image-viewer {
   position: absolute;
   top: 30px;
   left: 0;
   width: 100%;
-  background: #eeeeee;
+  background: white;
   height: fit-content;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding-bottom: 20px;
   border-radius: 3px; }
@@ -71,13 +71,13 @@ main {
       flex-direction: row; } }
   #image-viewer__buttons button {
     flex: 1 1 0;
-    border: 1px solid #777777;
+    border: 1px solid #9b9b9b;
     border-radius: 3px;
-    background: #eeeeee;
+    background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     cursor: pointer; }
     #image-viewer__buttons button:hover {
-      background: #d6d6d6; }
+      background: #e0e0e0; }
 
 #email-addresses {
   position: relative;
@@ -101,31 +101,28 @@ main {
       width: 100%;
       margin: 0;
       border-radius: 3px 0 0 3px;
-      border: 1px solid #777777;
+      border: 1px solid #9b9b9b;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
     #email-addresses #add-new-email button {
       margin: 0;
       border-radius: 0 3px 3px 0;
-      border: 1px solid #777777;
+      border: 1px solid #9b9b9b;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       cursor: pointer; }
 
 #image-viewport__container {
   width: fit-content;
   margin: 20px auto;
-  background: #d6d6d6;
-  border: 1px solid #777777;
+  background: #e0e0e0;
+  border: 1px solid #9b9b9b;
   border-radius: 3px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
 
 #image-viewport {
   position: relative;
-  width: 200px;
-  height: 200px;
   margin: auto;
   background: #111111;
-  flex: 1 1 0;
-  border-bottom: 1px solid #777777; }
+  flex: 1 1 0; }
   #image-viewport a {
     width: 100%;
     height: 100%;
@@ -133,6 +130,34 @@ main {
     left: 0;
     position: absolute;
     cursor: pointer; }
+  #image-viewport.ratio1-1 {
+    width: 200px;
+    height: 200px; }
+    @media (min-width: 960px) {
+      #image-viewport.ratio1-1 {
+        width: 400px;
+        height: 400px; } }
+  #image-viewport.ratio3-2 {
+    width: 300px;
+    height: 200px; }
+    @media (min-width: 960px) {
+      #image-viewport.ratio3-2 {
+        width: 600px;
+        height: 400px; } }
+  #image-viewport.ratio4-3 {
+    width: 240px;
+    height: 180px; }
+    @media (min-width: 960px) {
+      #image-viewport.ratio4-3 {
+        width: 480px;
+        height: 360px; } }
+  #image-viewport.ratio16-9 {
+    width: 320px;
+    height: 180px; }
+    @media (min-width: 960px) {
+      #image-viewport.ratio16-9 {
+        width: 640px;
+        height: 360px; } }
 
 #image-aspect-ratio__buttons {
   width: 100%;
@@ -145,16 +170,16 @@ main {
   #image-aspect-ratio__buttons button {
     position: relative;
     width: 40px;
-    background: #eeeeee;
+    background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    border: 1px solid #777777;
+    border: 1px solid #9b9b9b;
     border-radius: 3px;
     cursor: pointer; }
     #image-aspect-ratio__buttons button:hover {
-      background: #dcdcff; }
+      background: #e0e0e0; }
     #image-aspect-ratio__buttons button.selected {
-      background: #c2c2ff;
-      box-shadow: 0 0 10px white; }
+      box-shadow: 0 0 10px white;
+      border: none; }
 
 #emailMessage {
   width: 100%;
@@ -171,9 +196,9 @@ main {
   top: 30px;
   left: 0;
   width: 100%;
-  background: #eeeeee;
+  background: white;
   height: fit-content;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 3px; }
   .collection-viewer h3 {
@@ -194,7 +219,7 @@ main {
   display: block;
   margin: 10px auto;
   background: #ff8d8d;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #e0e0e0;
   border-radius: 3px;
   padding: 5px;
   cursor: pointer; }
@@ -204,7 +229,7 @@ main {
 .title {
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #d6d6d6;
+  border-bottom: 1px solid #e0e0e0;
   padding: 10px;
   font-size: 1.2em;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
@@ -219,15 +244,37 @@ main {
     width: 80px;
     text-align: center;
     align-content: center;
-    border: 1px solid #d6d6d6;
+    border: 1px solid #e0e0e0;
+    transition: 0.3s ease;
     cursor: pointer; }
+    .tabs .tab::after {
+      width: 0;
+      content: "";
+      display: block;
+      background: #8d8dff;
+      height: 2px;
+      margin: auto;
+      transition: 0.3s ease; }
+    .tabs .tab:hover::after {
+      width: 40%;
+      content: "";
+      display: block;
+      background: #8d8dff;
+      height: 2px;
+      margin: auto; }
     .tabs .tab.current {
       position: relative;
       border-bottom: none;
       height: 30px;
-      top: 1px; }
-    .tabs .tab.current:hover {
-      background: #eeeeee; }
+      top: 1px;
+      background: white; }
+      .tabs .tab.current::after {
+        width: 100%;
+        content: "";
+        display: block;
+        background: #8d8dff;
+        height: 2px;
+        margin: auto; }
 
 #image-tile-container {
   display: flex;
@@ -238,7 +285,7 @@ main {
 
 .image-tile {
   position: relative;
-  border: 1px solid #d6d6d6;
+  border: 1px solid #e0e0e0;
   border-radius: 3px 3px 0 0;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px; }
@@ -260,9 +307,9 @@ main {
     width: 100%;
     height: fit-content;
     font-size: .8em;
-    background: #d6d6d6;
+    background: #e0e0e0;
     text-align: center;
-    border: 1px solid #777777;
+    border: 1px solid #9b9b9b;
     border-radius: 0 0 3px 3px; }
   .image-tile a {
     position: absolute;

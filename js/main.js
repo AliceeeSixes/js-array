@@ -1,6 +1,7 @@
 // Initialise tracking variables
 let lastImage = null;
-let imageDimensions = [200,200,1200,1200]; // First two values are viewport size, second two values are image resolution
+let imageDimensions = []; // First two values are viewport size, second two values are image resolution
+setImageDimensions("ratio1-1",1200,1200);
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,7}$/;
 
 // Initialise collections
@@ -21,10 +22,11 @@ if (!collections) {
 
 async function getImage() {
     try {
-        let response = await fetch(`https://picsum.photos/${imageDimensions[2]}/${imageDimensions[3]}`);
+        let response = await fetch(`https://picsum.photos/${imageDimensions[1]}/${imageDimensions[2]}`);
         if (!response.ok) {
             throw new Error(`${response.status}`);
         }
+        console.log(response);
 
         let imageUrl = response.url // Get image url
 
@@ -52,9 +54,11 @@ getImage(); // Get image on page load
 
 // Set image dimensions
 
-function setImageDimensions(x,y,a,b) {
-    imageDimensions = [x,y,a,b]; // Set image dimensions
-    $("#image-viewport").css("background","#111111").css("width",x).css("height",y); // Resize image viewport and reset background
+function setImageDimensions(ratio,x,y) {
+    $("#image-viewport").removeClass(imageDimensions[0]); // Remove class for previous aspect ratio
+    imageDimensions = [ratio,x,y]; // Set image dimensions
+    $("#image-viewport").css("background","#111111");
+    $("#image-viewport").addClass(ratio); // Add class for new aspect ratio
     getImage(); // Generate a new image to fit new aspect ratio
 }
 
@@ -183,7 +187,7 @@ function generateImageTile(image) {
     let url = image.url; // Get url
     let dimensions = image.dimensions; // Get dimensions
 
-    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});background-size:contain;width:${dimensions[0]}px;height:${dimensions[1]}px"><a  href="${url}" target="_blank"></a><button class="delete-tile"><i class="fa fa-xmark"></i></button><div class="resolution">${dimensions[2]} * ${dimensions[3]}</div></div>`);
+    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});background-size:contain;"><a  href="${url}" target="_blank"></a><button class="delete-tile"><i class="fa fa-xmark"></i></button><div class="resolution">${dimensions[1]} * ${dimensions[2]}</div></div>`);
     return(newTile);
 }
 

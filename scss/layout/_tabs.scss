@@ -10,18 +10,48 @@
         text-align: center;
         align-content: center;
         border: 1px solid $palegrey;
+        transition: 0.3s ease;
+        &::after {
+            width: 0;
+            content: "";
+            display: block;
+            background: $blue;
+            height: 2px;
+            margin: auto;
+            transition: 0.3s ease;
+
+        }
+        &:hover {
+            &::after {
+                width: 40%;
+                content: "";
+                display: block;
+                background: $blue;
+                height: 2px;
+                margin: auto;
+
+            }
+        }
 
         &.current {
             position: relative;
             border-bottom: none;
             height: 30px;
             top: 1px;
+            background: white;
+            &::after {
+                width: 100%;
+                content: "";
+                display: block;
+                background: $blue;
+                height: 2px;
+                margin: auto;
+
+            }
         }
 
         cursor: pointer;
 
-        &.current:hover {
-            background: $offwhite;
-        }
+
     }
 }
