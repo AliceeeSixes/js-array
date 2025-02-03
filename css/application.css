@@ -74,11 +74,13 @@ main {
     border: 1px solid #777777;
     border-radius: 3px;
     background: #eeeeee;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer; }
     #image-viewer__buttons button:hover {
       background: #d6d6d6; }
 
 #email-addresses {
+  position: relative;
   width: fit-content;
   margin: auto;
   padding: 20px 0;
@@ -105,7 +107,8 @@ main {
       margin: 0;
       border-radius: 0 3px 3px 0;
       border: 1px solid #777777;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      cursor: pointer; }
 
 #image-viewport__container {
   width: fit-content;
@@ -116,12 +119,20 @@ main {
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
 
 #image-viewport {
+  position: relative;
   width: 200px;
   height: 200px;
   margin: auto;
   background: #111111;
   flex: 1 1 0;
   border-bottom: 1px solid #777777; }
+  #image-viewport a {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    cursor: pointer; }
 
 #image-aspect-ratio__buttons {
   width: 100%;
@@ -137,17 +148,23 @@ main {
     background: #eeeeee;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border: 1px solid #777777;
-    border-radius: 3px; }
+    border-radius: 3px;
+    cursor: pointer; }
     #image-aspect-ratio__buttons button:hover {
-      background: #d6d6d6; }
-    #image-aspect-ratio__buttons button.selected::after {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      border-bottom: 1px solid #777777;
-      left: 0;
-      bottom: -3px; }
+      background: #dcdcff; }
+    #image-aspect-ratio__buttons button.selected {
+      background: #c2c2ff;
+      box-shadow: 0 0 10px white; }
+
+#emailMessage {
+  width: 100%;
+  font-size: .8em;
+  display: none;
+  text-wrap: pretty; }
+  #emailMessage.positive {
+    color: #8dff8d; }
+  #emailMessage.negative {
+    color: #ff8d8d; }
 
 .collection-viewer {
   position: absolute;
@@ -202,12 +219,15 @@ main {
     width: 80px;
     text-align: center;
     align-content: center;
-    border: 1px solid #d6d6d6; }
+    border: 1px solid #d6d6d6;
+    cursor: pointer; }
     .tabs .tab.current {
       position: relative;
       border-bottom: none;
       height: 30px;
       top: 1px; }
+    .tabs .tab.current:hover {
+      background: #eeeeee; }
 
 #image-tile-container {
   display: flex;
@@ -219,11 +239,12 @@ main {
 .image-tile {
   position: relative;
   border: 1px solid #d6d6d6;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px; }
   .image-tile .delete-tile {
     position: absolute;
-    top: 5px;
+    top: 2px;
     right: 5px;
     color: #ff8d8d;
     padding: 0;
@@ -233,5 +254,21 @@ main {
     cursor: pointer; }
     .image-tile .delete-tile:hover {
       color: #ff2727; }
+  .image-tile .resolution {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: fit-content;
+    font-size: .8em;
+    background: #d6d6d6;
+    text-align: center;
+    border: 1px solid #777777;
+    border-radius: 0 0 3px 3px; }
+  .image-tile a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%; }
 
 /*# sourceMappingURL=application.css.map */

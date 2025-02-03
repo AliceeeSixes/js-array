@@ -17,5 +17,11 @@
             height: 30px;
             top: 1px;
         }
+
+        cursor: pointer;
+
+        &.current:hover {
+            background: $offwhite;
+        }
     }
 }

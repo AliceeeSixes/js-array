@@ -1,6 +1,6 @@
 // Initialise tracking variables
 let lastImage = null;
-let imageDimensions = [200,200];
+let imageDimensions = [200,200,1200,1200]; // First two values are viewport size, second two values are image resolution
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,7}$/;
 
 // Initialise collections
@@ -21,14 +21,16 @@ if (!collections) {
 
 async function getImage() {
     try {
-        let response = await fetch(`https://picsum.photos/${imageDimensions[0]}/${imageDimensions[1]}`);
+        let response = await fetch(`https://picsum.photos/${imageDimensions[2]}/${imageDimensions[3]}`);
         if (!response.ok) {
             throw new Error(`${response.status}`);
         }
 
         let imageUrl = response.url // Get image url
 
-        $("#image-viewport").css("background",`url(${response.url})`); // Set image viewport to display image
+        $("#image-viewport").css("background",`url(${response.url})`).css("background-size","contain"); // Set image viewport to display image
+        $("#image-viewport-link").attr("href",response.url);
+
 
 
         // Track most recently generated image in global variable lastImage
@@ -46,10 +48,12 @@ async function getImage() {
 getImage(); // Get image on page load
 
 
+
+
 // Set image dimensions
 
-function setImageDimensions(x,y) {
-    imageDimensions = [x,y]; // Set image dimensions
+function setImageDimensions(x,y,a,b) {
+    imageDimensions = [x,y,a,b]; // Set image dimensions
     $("#image-viewport").css("background","#111111").css("width",x).css("height",y); // Resize image viewport and reset background
     getImage(); // Generate a new image to fit new aspect ratio
 }
@@ -58,14 +62,10 @@ function setImageDimensions(x,y) {
 // Create new collection
 
 function createNewCollection(name) {
-    if (Object.hasOwn(collections, name)) {
-        console.log("Collection already exists");
-    } else {
-        collections[name] = {
-            images : []
-        };
-        console.log("New collection created");
-    }
+    collections[name] = {
+        images : []
+    };
+    console.log("New collection created");
     let collectionsJSON = JSON.stringify(collections); // Convert collections object to JSON string
     localStorage.setItem("collections", collectionsJSON); // Save collections to localStorage object
 }
@@ -93,20 +93,27 @@ function deleteCollection(name) {
 
 function addNewEmail() {
     let email = $("#email").val();
-    if (validEmail(email)) {
+    if (!validEmail(email)) {
+        // Indicate failure - invalid email
+        console.log("Failed to add email");
+        $("#emailMessage").text("Failed to add email address - invalid").removeClass("positive").addClass("negative").show();
+    } else if (Object.hasOwn(collections, email)) {
+        // Indicate failure - collection already exists
+        console.log("Collection already exists");
+        $("#emailMessage").text("Failed to add email address - already added!").removeClass("positive").addClass("negative").show();
+    } else {
+        
         createNewCollection(email); // Create new collection
         $("#add-new-email button").html("&check;"); // Change + to tickmark to indicate success
+        $("#emailMessage").text("Email address added!").removeClass("negative").addClass("positive").show();
 
         generateDropdowns(); // Regenerate dropdown menus
 
         $("#selected-email").val(email); // Auto-select new email as active collection
-    } else {
-        // Indicate failure
-        console.log("Failed to add email");
     }
     $("#email").val("");
 
-    
+
 }
 
 // Event listener to change tickmark back to plus after specified delay
@@ -119,6 +126,7 @@ $("#add-new-email button").on("click", async function() {
 // Event listener to change tickmark back to plus if text entry is clicked
 $("#email").on("click", () => {
     $("#add-new-email button").html("+"); // Change tickmark back to +
+    $("#emailMessage").hide(); // Hide message text
 });
 
 
@@ -175,7 +183,7 @@ function generateImageTile(image) {
     let url = image.url; // Get url
     let dimensions = image.dimensions; // Get dimensions
 
-    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});width:${dimensions[0]}px;height:${dimensions[1]}px"><button class="delete-tile"><i class="fa fa-xmark"></i></button></div>`);
+    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});background-size:contain;width:${dimensions[0]}px;height:${dimensions[1]}px"><a  href="${url}" target="_blank"></a><button class="delete-tile"><i class="fa fa-xmark"></i></button><div class="resolution">${dimensions[2]} * ${dimensions[3]}</div></div>`);
     return(newTile);
 }
 

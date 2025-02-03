@@ -36,12 +36,14 @@
             
 
             <div id="image-viewport__container">
-            <div id="image-viewport"></div>
+            <div id="image-viewport">
+                <a id="image-viewport-link" href="" target="_blank"></a>
+            </div>
             <div id="image-aspect-ratio__buttons">
-                <button class="selected" onclick="setImageDimensions(200,200)">1:1</button>
-                <button onclick="setImageDimensions(300,200)">3:2</button>
-                <button onclick="setImageDimensions(240,180)">4:3</button>
-                <button onclick="setImageDimensions(320,180)">16:9</button>
+                <button class="selected" onclick="setImageDimensions(200,200,1200,1200)">1:1</button>
+                <button onclick="setImageDimensions(300,200,1200,800)">3:2</button>
+                <button onclick="setImageDimensions(240,180,1280,960)">4:3</button>
+                <button onclick="setImageDimensions(320,180,1920,1080)">16:9</button>
             </div>
             </div>
 
@@ -59,6 +61,7 @@
                     <input type="text" id="email"></input>
                     <button onclick="addNewEmail()">+</button>
                 </div>
+                <div id="emailMessage">Error - JavaScript not working</div>
 
             </div>
 

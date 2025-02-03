@@ -9,12 +9,13 @@
 .image-tile {
     position: relative;
     border: 1px solid $palegrey;
-    border-radius: 3px;
+    border-radius: 3px 3px 0 0;
     box-shadow: 0 0 5px $shadow;
+    margin-bottom: 20px;
 
     .delete-tile {
         position: absolute;
-        top: 5px;
+        top: 2px;
         right: 5px;
         color: $red;
 
@@ -28,5 +29,24 @@
         }
 
         cursor: pointer;
+    }
+    .resolution {
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        height: fit-content;;
+        font-size: .8em;
+        background: $palegrey;
+        text-align: center;
+        border: 1px solid $grey;
+        border-radius: 0 0 3px 3px;
+    }
+    a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        
     }
 }
