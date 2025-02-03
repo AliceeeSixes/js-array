@@ -21,6 +21,8 @@ if (!collections) {
 // Get Image
 
 async function getImage() {
+    $("#emailMessage").text(""); // Remove error messages related to email addresses
+    $("#addImageMessage").text(""); // Remove error messages related to adding images to collections
     try {
         let response = await fetch(`https://picsum.photos/${imageDimensions[1]}/${imageDimensions[2]}`);
         if (!response.ok) {
@@ -44,7 +46,10 @@ async function getImage() {
 
     } catch (error) {
         console.log(error.message);
+        $("#addImageMessage").text(error.message); // Output any error text
     }
+
+    
 }
 
 getImage(); // Get image on page load
@@ -96,6 +101,7 @@ function deleteCollection(name) {
 // Add new email address
 
 function addNewEmail() {
+    $("#addImageMessage").text(""); // Remove error messages related to adding images
     let email = $("#email").val();
     if (!validEmail(email)) {
         // Indicate failure - invalid email
@@ -130,6 +136,7 @@ $("#add-new-email button").on("click", async function() {
 // Event listener to change tickmark back to plus if text entry is clicked
 $("#email").on("click", () => {
     $("#add-new-email button").html("+"); // Change tickmark back to +
+    $("#add-new-email").removeClass("error"); // Remove error class
     $("#emailMessage").hide(); // Hide message text
 });
 
@@ -139,14 +146,23 @@ $("#email").on("click", () => {
 
 function saveToCollection() {
 
+    $("#emailMessage").text(""); // Remove error messages related to email addresses
+
     let selectedCollection = $("#selected-email").val(); // Get value of currently selected email address
     if (selectedCollection === "none") {
         // If no email is selected output error
         console.log("Select a collection")
+        $("#addImageMessage").text("You must add an email address to save images").removeClass("positive").addClass("negative");
+        $("#add-new-email").addClass("error");
+    } else if (inCollection(lastImage, selectedCollection) === true) {
+        console.log("This image is already in this collection");
+        $("#addImageMessage").text("This image is already in this collection").removeClass("positive").addClass("negative");
     } else {
         let currentCollection = collections[selectedCollection]; // Get selected collection from collections object
 
         currentCollection.images.push(lastImage); // Add last generated image to current collection
+
+        $("#addImageMessage").text("Successfully added image!").removeClass("negative").addClass("positive");
 
     }
 
@@ -154,7 +170,17 @@ function saveToCollection() {
     localStorage.setItem("collections", collectionsJSON); // Save collections to localStorage object
 }
 
-
+// Check if image is already in a collection
+function inCollection(image, collection) {
+    let collectionToSearch = collections[collection];
+    let url = image.url;
+    for (let i in collectionToSearch.images) {
+        if (collectionToSearch.images[i].url == url) {
+            return(true);
+        }
+    }
+    return(false);
+}
 
 // Generate tiles from collection
 
@@ -197,6 +223,10 @@ function generateImageTile(image) {
 // Logic for UI tabs
 
 function focusTab(tab) {
+
+    $("#emailMessage").text(""); // Remove error messages related to email addresses
+    $("#addImageMessage").text(""); // Remove error messages related to adding images to collections
+    
     if (tab === "images") {
         $(".image-viewer").show()
         $(".collection-viewer").hide();

@@ -172,6 +172,7 @@ main {
         width: 50%; }
 
 #emailMessage {
+  position: absolute;
   width: 100%;
   font-size: .8em;
   display: none;
@@ -179,6 +180,18 @@ main {
   #emailMessage.positive {
     color: #8dff8d; }
   #emailMessage.negative {
+    color: #ff8d8d; }
+
+#addImageMessage {
+  position: absolute;
+  width: 100%;
+  bottom: -10px;
+  text-wrap: pretty;
+  font-size: 1em;
+  text-align: center; }
+  #addImageMessage.positive {
+    color: #8dff8d; }
+  #addImageMessage.negative {
     color: #ff8d8d; }
 
 .ratio1-1 {
@@ -228,6 +241,10 @@ main {
     .ratio16-9 {
       width: 640px;
       height: 360px; } }
+
+.error input,
+.error button {
+  outline: 1px solid #ff8d8d; }
 
 .collection-viewer {
   position: absolute;

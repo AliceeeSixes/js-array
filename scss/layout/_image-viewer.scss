@@ -190,11 +190,27 @@
 }
 
 #emailMessage {
+    position: absolute;
     width: 100%;
     font-size: .8em;
     display: none;
     text-wrap: pretty;
 
+    &.positive {
+        color: $green;
+    }
+    &.negative {
+        color: $red;
+    }
+}
+
+#addImageMessage {
+    position: absolute;
+    width: 100%;
+    bottom: -10px;
+    text-wrap: pretty;
+    font-size: 1em;
+    text-align: center;
     &.positive {
         color: $green;
     }
@@ -251,5 +267,12 @@
     @media (min-width: $break-medium) {
         width: 640px;
         height: 360px;
+    }
+}
+
+.error {
+    input,
+    button {
+        outline: 1px solid $red;
     }
 }
