@@ -1,0 +1,57 @@
+body.dark {
+    background: $darkgrey;
+    header,
+    .image-viewer,
+    .collection-viewer,
+    .tab.current,
+    #header-settings {
+        background: $offblack;
+        color: white;
+        h1 {
+            color: white;
+        }
+
+    }
+
+    #image-viewport__container {
+        background: $darkgrey;
+    }
+
+    .tab {
+        background: $darkgrey;
+        color: white;
+        border: 1px solid $blue;
+
+    }
+
+    main {
+        background: $darkgrey;
+    }
+
+    header,
+    .image-viewer,
+    select,
+    .collection-viewer,
+    #image-viewer__buttons button,
+    #add-new-email input,
+    #add-new-email button,
+    #image-viewport__container,
+    #image-aspect-ratio__buttons button
+    {
+        border: 1px solid $blue;
+    }
+    #email-addresses #add-new-email {
+        input,
+        button {
+            border: 1px solid $blue;
+        }
+        button {
+            color: $blue;
+        }
+    }
+
+    .title {
+        border-bottom: 1px solid $blue;
+    }
+}
+

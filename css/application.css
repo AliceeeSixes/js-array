@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 0;
   position: relative;
+  background: #e0e0e0;
   height: 100vh; }
 
 button:hover {
@@ -36,7 +37,9 @@ input {
 header {
   width: 100%;
   height: 50px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  background: white;
+  border-bottom: 1px solid #e0e0e0; }
 
 #header__inner {
   position: relative;
@@ -57,7 +60,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.3s ease;
   display: flex;
   align-content: center;
   flex-direction: column;
@@ -211,10 +214,8 @@ main {
       left: 50%; }
     #image-aspect-ratio__buttons button::before {
       right: 50%; }
-    #image-aspect-ratio__buttons button.selected {
-      box-shadow: 0 0 10px white; }
-      #image-aspect-ratio__buttons button.selected::after, #image-aspect-ratio__buttons button.selected::before {
-        width: 50%; }
+    #image-aspect-ratio__buttons button.selected::after, #image-aspect-ratio__buttons button.selected::before {
+      width: 50%; }
 
 #emailMessage {
   position: absolute;
@@ -371,7 +372,6 @@ main {
     text-align: center;
     align-content: center;
     border: 1px solid #e0e0e0;
-    transition: 0.3s ease;
     cursor: pointer; }
     .tabs .tab::after {
       position: relative;
@@ -381,7 +381,7 @@ main {
       background: #8d8dff;
       height: 2px;
       margin: auto;
-      transition: 0.3s ease;
+      transition: width 0.3s ease;
       bottom: -2px; }
     .tabs .tab:hover::after {
       width: 40%;
@@ -555,5 +555,46 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%; }
+
+body.dark {
+  background: #535353; }
+  body.dark header,
+  body.dark .image-viewer,
+  body.dark .collection-viewer,
+  body.dark .tab.current,
+  body.dark #header-settings {
+    background: #111111;
+    color: white; }
+    body.dark header h1,
+    body.dark .image-viewer h1,
+    body.dark .collection-viewer h1,
+    body.dark .tab.current h1,
+    body.dark #header-settings h1 {
+      color: white; }
+  body.dark #image-viewport__container {
+    background: #535353; }
+  body.dark .tab {
+    background: #535353;
+    color: white;
+    border: 1px solid #8d8dff; }
+  body.dark main {
+    background: #535353; }
+  body.dark header,
+  body.dark .image-viewer,
+  body.dark select,
+  body.dark .collection-viewer,
+  body.dark #image-viewer__buttons button,
+  body.dark #add-new-email input,
+  body.dark #add-new-email button,
+  body.dark #image-viewport__container,
+  body.dark #image-aspect-ratio__buttons button {
+    border: 1px solid #8d8dff; }
+  body.dark #email-addresses #add-new-email input,
+  body.dark #email-addresses #add-new-email button {
+    border: 1px solid #8d8dff; }
+  body.dark #email-addresses #add-new-email button {
+    color: #8d8dff; }
+  body.dark .title {
+    border-bottom: 1px solid #8d8dff; }
 
 /*# sourceMappingURL=application.css.map */

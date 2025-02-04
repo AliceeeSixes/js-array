@@ -21,7 +21,13 @@ let settings = localStorage.getItem("settings");
 settings = JSON.parse(settings);
 if(settings) {
     eagerLoading = settings.eagerLoad; // Image loading style
+
     darkMode = settings.darkMode; // Dark mode
+    if (darkMode) {
+        $("body").addClass("dark");
+    } else {
+        $("body").removeClass("dark");
+    }
 
     console.log("Loaded settings as: " + JSON.stringify(settings));
 }
@@ -106,7 +112,7 @@ function updateImage() {
 
 
 
-        // Track most recently generated image in global variable lastImage
+        // Track most recently displayed image in global variable lastImage
         lastImage = {
             url : imageUrl,
             dimensions: imageDimensions
@@ -434,6 +440,11 @@ function updateSettings() {
     // Dark mode
     let settingDarkMode = $("#dark-mode").is(":checked");
     darkMode = settingDarkMode;
+    if (darkMode) {
+        $("body").addClass("dark");
+    } else {
+        $("body").removeClass("dark");
+    }
 
 
     settings = {};
