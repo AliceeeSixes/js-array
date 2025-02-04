@@ -30,12 +30,7 @@ select {
 button,
 select,
 input {
-  font-size: 1.5em; }
-  @media (min-width: 768px) {
-    button,
-    select,
-    input {
-      font-size: 1em; } }
+  font-size: 1.2em; }
 
 header {
   width: 100%;
@@ -115,14 +110,14 @@ main {
   #email-addresses #email-select {
     margin-bottom: 10px; }
     #email-addresses #email-select select {
-      width: 250px;
+      width: 300px;
       box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
       border-radius: 3px; }
   #email-addresses #add-new-email {
     display: flex;
     gap: 0;
     margin-bottom: 10px;
-    width: 250px; }
+    width: 300px; }
     #email-addresses #add-new-email input {
       width: 100%;
       margin: 0;
@@ -168,6 +163,7 @@ main {
   #image-aspect-ratio__buttons button {
     position: relative;
     width: 40px;
+    font-size: .8em;
     background: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     border: 1px solid #9b9b9b;
@@ -307,7 +303,7 @@ main {
   align-content: center;
   text-align: center; }
   .collection-selector select {
-    width: 250px;
+    width: 300px;
     border-radius: 3px; }
 
 .selected-collection {
@@ -339,7 +335,8 @@ main {
   z-index: 1; }
   .tabs .tab {
     height: 29px;
-    width: 80px;
+    width: 120px;
+    font-size: 1em;
     text-align: center;
     align-content: center;
     border: 1px solid #e0e0e0;
