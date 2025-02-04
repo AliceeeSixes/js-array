@@ -12,6 +12,7 @@ header {
 body {
   margin: 0;
   padding: 0;
+  position: relative;
   height: 100vh; }
 
 button:hover {
@@ -38,6 +39,7 @@ header {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); }
 
 #header__inner {
+  position: relative;
   width: 100%;
   height: 100%;
   display: flex;
@@ -46,6 +48,27 @@ header {
   flex-wrap: wrap;
   color: #111111;
   text-transform: uppercase; }
+
+#header-settings {
+  position: absolute;
+  right: 15px;
+  bottom: 0;
+  top: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap; }
+  #header-settings:hover i {
+    transform: rotate(180deg); }
+  #header-settings i {
+    height: 100%;
+    align-content: center;
+    transition: 0.3s ease; }
 
 main {
   position: relative;
@@ -67,12 +90,12 @@ main {
   top: 30px;
   left: 0;
   width: 100%;
-  background: white;
   height: 100%;
+  min-height: 85vh;
+  background: white;
   border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   padding-bottom: 20px;
-  min-height: 85vh;
   border-radius: 3px; }
   @media (min-width: 768px) {
     .image-viewer {
@@ -414,5 +437,115 @@ main {
     left: 0;
     height: 100%;
     width: 100%; }
+
+.settings-menu-outer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  display: none;
+  align-content: center; }
+
+.settings-menu-inner {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  background: white;
+  border: 2px solid #e0e0e0;
+  border-radius: 3px; }
+
+#settings-button-close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: none;
+  border: none;
+  cursor: pointer; }
+
+.settings {
+  width: 100%;
+  height: 100%;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-between; }
+
+.settings-option {
+  display: flex;
+  flex-direction: row;
+  align-content: top;
+  flex-wrap: wrap;
+  gap: 20px; }
+  .settings-option .option-text {
+    width: 150px;
+    text-align: center; }
+    .settings-option .option-text h5 {
+      font-weight: normal;
+      margin: 0;
+      padding: 0; }
+    .settings-option .option-text h4 {
+      margin: 20px; }
+  .settings-option label {
+    margin-top: 20px; }
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px; }
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0; }
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s; }
+
+input:checked + .slider {
+  background-color: #2196F3; }
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3; }
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px); }
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px; }
+
+.slider.round:before {
+  border-radius: 50%; }
 
 /*# sourceMappingURL=application.css.map */

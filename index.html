@@ -14,6 +14,7 @@
     <header>
         <div id="header__inner">
             <h1>Image Browser</h1>
+            <button id="header-settings" onclick="settingsToggle(true)"><i class="fa fa-gear"></i></button>
         </div>
     </header>
 
@@ -105,6 +106,45 @@
 
 
     </main>
+    <div class="settings-menu-outer">
+        <div class="settings-menu-inner">
+            <button id="settings-button-close" onclick="settingsToggle(false)"><i class="fa fa-xmark"></i></button>
+
+            <div class="settings">
+
+                <!-- Loading style -->
+                <div class="settings-option">
+                    <div class="option-text">
+                        <h4>Eager Loading</h4>
+                        <h5>More intensive but loads images faster</h5>
+                    
+                    </div>
+                    <label class="switch" for="loading-style">
+                        <input type="checkbox" id="loading-style">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <!-- Dark mode -->
+                <div class="settings-option">
+                    <div class="option-text">
+                        <h4>Dark Mode</h4>
+                        <h5>Makes the site easier on the eyes</h5>
+                    
+                    </div>
+                    <label class="switch" for="dark-mode">
+                        <input type="checkbox" id="dark-mode">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="js/main.js"></script>

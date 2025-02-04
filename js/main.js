@@ -1,7 +1,10 @@
 // Initialise tracking variables
 let lastImage = null;
+let eagerImage = null; // Eager loading next image makes it appear sooner after button press
 let imageDimensions = []; // First two values are viewport size, second two values are image resolution
-setImageDimensions("ratio1-1",1200,1200);
+let eagerLoading = true; // Variable to enable/disable eager loading
+let darkMode = false; // Variable to enable/disable dark mode
+setImageDimensions("ratio1-1",1200,1200); // Set initial dimensions and generate image on load
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,7}$/;
 
 // Initialise collections
@@ -13,6 +16,15 @@ if (!collections) {
     generateDropdowns(); // Generate dropdowns from saved collections
 }
 
+// Initialise settings
+let settings = localStorage.getItem("settings");
+settings = JSON.parse(settings);
+if(settings) {
+    eagerLoading = settings.eagerLoad; // Image loading style
+    darkMode = settings.darkMode; // Dark mode
+
+    console.log("Loaded settings as: " + JSON.stringify(settings));
+}
 
 
 
@@ -21,19 +33,74 @@ if (!collections) {
 // Get Image
 
 async function getImage() {
-    $("#emailMessage").text(""); // Remove error messages related to email addresses
-    $("#addImageMessage").text(""); // Remove error messages related to adding images to collections
+    if (eagerImage && eagerImage[1] == imageDimensions) {
+        updateImage();
+        
+    } else {
+        $("#emailMessage").text(""); // Remove error messages related to email addresses
+        $("#addImageMessage").text(""); // Remove error messages related to adding images to collections
+        try {
+            let response = await fetch(`https://picsum.photos/${imageDimensions[1]}/${imageDimensions[2]}`);
+            if (!response.ok) {
+                throw new Error(`${response.status}`);
+            }
+            console.log(response);
+
+            let imageUrl = response.url // Get image url
+
+            $("#image-viewport").css("background",`url(${response.url})`).css("background-size","contain"); // Set image viewport to display image
+            $("#image-viewport-link").attr("href",response.url);
+
+
+
+            // Track most recently generated image in global variable lastImage
+            lastImage = {
+                url : imageUrl,
+                dimensions: imageDimensions
+            };
+
+        } catch (error) {
+            console.log(error.message);
+            $("#addImageMessage").text(error.message); // Output any error text
+        }
+    }
+
+    if (eagerLoading) {
+        eagerLoad();
+    }
+
+
+
+
+    
+}
+
+
+// Eager load
+async function eagerLoad() {
     try {
         let response = await fetch(`https://picsum.photos/${imageDimensions[1]}/${imageDimensions[2]}`);
         if (!response.ok) {
             throw new Error(`${response.status}`);
         }
-        console.log(response);
+        eagerImage = [response, imageDimensions];
+        console.log("Eager loaded")
 
-        let imageUrl = response.url // Get image url
+    } catch (error) {
+        console.log(error.message);
+        $("#addImageMessage").text(error.message); // Output any error text
+        eagerImage = null;
+    }
 
-        $("#image-viewport").css("background",`url(${response.url})`).css("background-size","contain"); // Set image viewport to display image
-        $("#image-viewport-link").attr("href",response.url);
+}
+
+// Update image
+function updateImage() {
+    let image = eagerImage[0]
+    let imageUrl = image.url // Get image url
+
+        $("#image-viewport").css("background",`url(${image.url})`).css("background-size","contain"); // Set image viewport to display image
+        $("#image-viewport-link").attr("href",image.url);
 
 
 
@@ -43,17 +110,7 @@ async function getImage() {
             dimensions: imageDimensions
         };
 
-
-    } catch (error) {
-        console.log(error.message);
-        $("#addImageMessage").text(error.message); // Output any error text
-    }
-
-    
 }
-
-getImage(); // Get image on page load
-
 
 
 
@@ -333,4 +390,57 @@ $("#image-aspect-ratio__buttons").on("click","button", (event) => {
 function validEmail(email) {
     let result = emailRegex.test(email);
     return(result)
+}
+
+
+// Settings menu
+function settingsToggle(arg) {
+    if(arg) {
+        loadSettings();
+        $(".settings-menu-outer").css("display","flex");
+    } else {
+        updateSettings();
+        $(".settings-menu-outer").css("display","none");
+        
+    }
+}
+
+
+// Load current settings
+function loadSettings() {
+    // Eager loading
+    if (eagerLoading) {
+        let settingEagerLoad = $("#loading-style").prop("checked", true);
+    } else {
+        let settingEagerLoad = $("#loading-style").prop("checked", false);
+    }
+    // Dark mode
+    if (darkMode) {
+        let settingEagerLoad = $("#dark-mode").prop("checked", true);
+    } else {
+        let settingEagerLoad = $("#dark-mode").prop("checked", false);
+    }
+    
+
+}
+
+function updateSettings() {
+    // Eager loading
+    let settingEagerLoad = $("#loading-style").is(":checked");
+    eagerLoading = settingEagerLoad;
+
+    // Dark mode
+    let settingDarkMode = $("#dark-mode").is(":checked");
+    darkMode = settingDarkMode;
+
+
+    settings = {};
+    settings.eagerLoad = eagerLoading;
+    settings.darkMode = darkMode;
+    console.log("settings saved as" + JSON.stringify(settings));
+
+
+    let settingsJSON = JSON.stringify(settings);
+
+    localStorage.setItem("settings", settingsJSON);
 }
