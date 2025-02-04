@@ -91,8 +91,7 @@ main {
   top: 30px;
   left: 0;
   width: 100%;
-  height: 100%;
-  min-height: 85vh;
+  height: 85vh;
   background: white;
   border: 1px solid #e0e0e0;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -100,7 +99,7 @@ main {
   border-radius: 3px; }
   @media (min-width: 768px) {
     .image-viewer {
-      min-height: fit-content; } }
+      height: fit-content; } }
 
 #image-viewer__buttons {
   width: fit-content;
