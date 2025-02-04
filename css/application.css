@@ -307,6 +307,14 @@ main {
 .error button {
   outline: 1px solid #ff8d8d; }
 
+#quickLoad {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -5; }
+
 .collection-viewer {
   position: absolute;
   top: 30px;

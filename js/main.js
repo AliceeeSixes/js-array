@@ -84,6 +84,7 @@ async function eagerLoad() {
             throw new Error(`${response.status}`);
         }
         eagerImage = [response, imageDimensions];
+        $("#quickLoad").css("background",`url(${response.url})`).css("background-size","contain"); // Extra div to display image as soon a possible
         console.log("Eager loaded")
 
     } catch (error) {
@@ -98,9 +99,10 @@ async function eagerLoad() {
 function updateImage() {
     let image = eagerImage[0]
     let imageUrl = image.url // Get image url
- 
+        $("#quickLoad").css("z-index","5"); // Bring pre-loaded version to the forefront
         $("#image-viewport").css("background",`url(${image.url})`).css("background-size","contain"); // Set image viewport to display image
         $("#image-viewport-link").attr("href",image.url);
+        $("#quickLoad").css("z-index","-5"); // Hide pre-loaded version again
 
 
 
