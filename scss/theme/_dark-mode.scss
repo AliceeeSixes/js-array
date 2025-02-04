@@ -36,7 +36,8 @@ body.dark {
     #add-new-email input,
     #add-new-email button,
     #image-viewport__container,
-    #image-aspect-ratio__buttons button
+    #image-aspect-ratio__buttons button,
+    .resolution
     {
         border: 1px solid $blue;
     }
@@ -46,7 +47,7 @@ body.dark {
             border: 1px solid $blue;
         }
         button {
-            color: $blue;
+            color: white;
         }
     }
 
@@ -56,6 +57,16 @@ body.dark {
 
     #delete-collection {
         border: none;
+    }
+
+    #image-aspect-ratio__buttons button,
+    select,
+    #email,
+    #add-new-email button,
+    #image-viewer__buttons button,
+    .resolution {
+        background: $darkgrey;
+        color: white;
     }
 }
 

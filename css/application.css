@@ -591,16 +591,25 @@ body.dark {
   body.dark #add-new-email input,
   body.dark #add-new-email button,
   body.dark #image-viewport__container,
-  body.dark #image-aspect-ratio__buttons button {
+  body.dark #image-aspect-ratio__buttons button,
+  body.dark .resolution {
     border: 1px solid #8d8dff; }
   body.dark #email-addresses #add-new-email input,
   body.dark #email-addresses #add-new-email button {
     border: 1px solid #8d8dff; }
   body.dark #email-addresses #add-new-email button {
-    color: #8d8dff; }
+    color: white; }
   body.dark .title {
     border-bottom: 1px solid #8d8dff; }
   body.dark #delete-collection {
     border: none; }
+  body.dark #image-aspect-ratio__buttons button,
+  body.dark select,
+  body.dark #email,
+  body.dark #add-new-email button,
+  body.dark #image-viewer__buttons button,
+  body.dark .resolution {
+    background: #535353;
+    color: white; }
 
 /*# sourceMappingURL=application.css.map */
