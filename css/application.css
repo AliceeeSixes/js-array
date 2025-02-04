@@ -69,9 +69,13 @@ header {
   #header-settings:hover i {
     transform: rotate(180deg); }
   #header-settings i {
-    height: 100%;
+    height: fit-content;
     align-content: center;
-    transition: 0.3s ease; }
+    transition: 0.3s ease;
+    align-self: center; }
+    #header-settings i::before {
+      height: fit-content;
+      align-content: center; }
 
 main {
   position: relative;
@@ -596,5 +600,7 @@ body.dark {
     color: #8d8dff; }
   body.dark .title {
     border-bottom: 1px solid #8d8dff; }
+  body.dark #delete-collection {
+    border: none; }
 
 /*# sourceMappingURL=application.css.map */

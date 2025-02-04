@@ -38,8 +38,13 @@ header {
         }
     }
     i {
-        height: 100%;
+        height: fit-content;
         align-content: center;
         transition: 0.3s ease;
+        align-self: center;
+        &::before {
+            height: fit-content;
+            align-content: center;
+        }
     }
 }
