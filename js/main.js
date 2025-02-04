@@ -33,7 +33,7 @@ if(settings) {
 // Get Image
 
 async function getImage() {
-    if (eagerImage && eagerImage[1] == imageDimensions) {
+    if (eagerLoading && eagerImage && eagerImage[1] == imageDimensions) {
         updateImage();
         
     } else {
@@ -98,7 +98,7 @@ async function eagerLoad() {
 function updateImage() {
     let image = eagerImage[0]
     let imageUrl = image.url // Get image url
-
+ 
         $("#image-viewport").css("background",`url(${image.url})`).css("background-size","contain"); // Set image viewport to display image
         $("#image-viewport-link").attr("href",image.url);
 
