@@ -22,7 +22,7 @@
         <!-- Buttons to focus tabs -->
         <div class="tabs">
             <button class="tab" id="image-tab" onclick="focusTab('images')">Images</button>
-            <button class="tab" id="collection-tab" onclick="focusTab('collections')">Collections</button>
+            <button class="tab" id="collection-tab" onclick="focusTab('collections')">Collections<div class="notifs"></div></button>
 
         </div>
 
@@ -135,6 +135,19 @@
                     </div>
                     <label class="switch" for="dark-mode">
                         <input type="checkbox" id="dark-mode">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+                <!-- Notifications -->
+                <div class="settings-option">
+                    <div class="option-text">
+                        <h4>Notifications</h4>
+                        <h5>Display notifications on the collections tab when new images are added</h5>
+                    
+                    </div>
+                    <label class="switch" for="notifs-setting">
+                        <input type="checkbox" id="notifs-setting">
                         <span class="slider round"></span>
                     </label>
                 </div>

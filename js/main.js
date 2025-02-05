@@ -4,8 +4,10 @@ let eagerImage = null; // Eager loading next image makes it appear sooner after 
 let imageDimensions = []; // First two values are viewport size, second two values are image resolution
 let eagerLoading = true; // Variable to enable/disable eager loading
 let darkMode = false; // Variable to enable/disable dark mode
+let notifs = true; // Variable to enable/disable notifications for the collections tab
 setImageDimensions("ratio1-1",1200,1200); // Set initial dimensions and generate image on load
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,7}$/;
+let unreadNotifs = 0;
 
 // Initialise collections
 let collections = localStorage.getItem("collections");
@@ -28,6 +30,8 @@ if(settings) {
     } else {
         $("body").removeClass("dark");
     }
+
+    notifs = settings.notifs; // Notifications
 
     console.log("Loaded settings as: " + JSON.stringify(settings));
 }
@@ -230,6 +234,7 @@ function saveToCollection() {
         currentCollection.images.push(lastImage); // Add last generated image to current collection
 
         $("#addImageMessage").text("Successfully added image!").removeClass("negative").addClass("positive");
+        addNotif();
 
     }
 
@@ -308,6 +313,7 @@ function focusTab(tab) {
         $(".collection-viewer").show();
         $("#image-tab").removeClass("current");
         $("#collection-tab").addClass("current");
+        clearNotifs();
 
 
         // Carry over selected email to new tab
@@ -428,6 +434,15 @@ function loadSettings() {
     } else {
         let settingEagerLoad = $("#dark-mode").prop("checked", false);
     }
+
+    // Notifications
+    if (notifs) {
+        let settingEagerLoad = $("#notifs-setting").prop("checked", true);
+    } else {
+        let settingEagerLoad = $("#notifs-setting").prop("checked", false);
+    }
+    
+
     
 
 }
@@ -446,14 +461,43 @@ function updateSettings() {
         $("body").removeClass("dark");
     }
 
+    // Notifications
+    let settingsNotifs = $("#notifs-setting").is(":checked");
+    notifs = settingsNotifs;
+    if (notifs && unreadNotifs > 0) {
+        $(".notifs").show();
+    } else {
+        $(".notifs").hide();
+    }
 
     settings = {};
     settings.eagerLoad = eagerLoading;
     settings.darkMode = darkMode;
+    settings.notifs = notifs;
     console.log("settings saved as" + JSON.stringify(settings));
 
 
     let settingsJSON = JSON.stringify(settings);
 
     localStorage.setItem("settings", settingsJSON);
+}
+
+// Notifs
+
+function addNotif() {
+    unreadNotifs ++;
+    if (unreadNotifs > 99) {
+        $(".notifs").text("99+");
+    } else {
+        $(".notifs").text(unreadNotifs);
+    }
+    if (notifs) {
+        $(".notifs").show;
+    }
+    
+}
+
+function clearNotifs() {
+    $(".notifs").hide();
+    unreadNotifs = 0;
 }
