@@ -1,10 +1,3 @@
-body {
-  background: #e0e0e0; }
-
-header {
-  background: white;
-  border-bottom: 1px solid #e0e0e0; }
-
 * {
   font-family: sans-serif;
   box-sizing: border-box; }
@@ -45,12 +38,12 @@ header {
   position: relative;
   width: 100%;
   height: 100%;
+  color: #111111;
+  text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-content: center;
-  flex-wrap: wrap;
-  color: #111111;
-  text-transform: uppercase; }
+  flex-wrap: wrap; }
 
 #header-settings {
   position: absolute;
@@ -84,11 +77,11 @@ main {
   height: fit-content;
   margin: auto;
   margin-top: 20px;
+  background: #e0e0e0;
   padding: 20px;
   display: flex;
   gap: 20px;
-  flex-direction: column;
-  background: #e0e0e0; }
+  flex-direction: column; }
   @media (min-width: 768px) {
     main {
       width: 90%; } }
@@ -506,13 +499,13 @@ main {
   justify-content: center; }
 
 .settings-option {
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   flex-direction: row;
   align-content: top;
   flex-wrap: wrap;
-  gap: 10px;
-  padding: 20px 0;
-  border-bottom: 1px solid #e0e0e0; }
+  gap: 10px; }
   .settings-option .option-text {
     width: 150px;
     text-align: center; }
@@ -584,59 +577,57 @@ input:checked + .slider:before {
 
 body.dark {
   background: #535353; }
-  body.dark header,
-  body.dark .image-viewer,
-  body.dark .collection-viewer,
-  body.dark .tab.current,
-  body.dark #header-settings,
-  body.dark .settings-menu-inner {
-    background: #111111;
-    color: white; }
-    body.dark header h1,
-    body.dark .image-viewer h1,
-    body.dark .collection-viewer h1,
-    body.dark .tab.current h1,
-    body.dark #header-settings h1,
-    body.dark .settings-menu-inner h1 {
-      color: white; }
-  body.dark #image-viewport__container {
-    background: #535353; }
-  body.dark .tab {
-    background: #535353;
-    color: white;
-    border: 1px solid #8d8dff; }
-  body.dark main {
-    background: #535353; }
-  body.dark header,
-  body.dark .image-viewer,
-  body.dark select,
-  body.dark .collection-viewer,
-  body.dark #image-viewer__buttons button,
-  body.dark #add-new-email input,
-  body.dark #add-new-email button,
+  body.dark main,
+  body.dark .tab,
   body.dark #image-viewport__container,
-  body.dark #image-aspect-ratio__buttons button,
-  body.dark .resolution,
-  body.dark .settings-menu-inner {
-    border: 1px solid #8d8dff; }
-  body.dark #email-addresses #add-new-email input,
-  body.dark #email-addresses #add-new-email button {
-    border: 1px solid #8d8dff; }
-  body.dark #email-addresses #add-new-email button {
-    color: white; }
-  body.dark .title {
-    border-bottom: 1px solid #8d8dff; }
-  body.dark #delete-collection {
-    border: none; }
   body.dark #image-aspect-ratio__buttons button,
   body.dark select,
   body.dark #email,
   body.dark #add-new-email button,
   body.dark #image-viewer__buttons button,
   body.dark .resolution {
-    background: #535353;
-    color: white; }
+    background: #535353; }
+  body.dark header,
+  body.dark .image-viewer,
+  body.dark .collection-viewer,
+  body.dark .tab.current,
+  body.dark #header-settings,
+  body.dark .settings-menu-inner {
+    background: #111111; }
   body.dark #settings-button-close {
     color: #8d8dff; }
+  body.dark header,
+  body.dark .image-viewer,
+  body.dark .collection-viewer,
+  body.dark .tab.current,
+  body.dark #header-settings,
+  body.dark .settings-menu-inner,
+  body.dark h1,
+  body.dark #email-addresses #add-new-email button,
+  body.dark .tab,
+  body.dark #image-aspect-ratio__buttons button,
+  body.dark select,
+  body.dark #email,
+  body.dark #add-new-email button,
+  body.dark #image-viewer__buttons button,
+  body.dark .resolution {
+    color: white; }
+  body.dark header,
+  body.dark .image-viewer,
+  body.dark select,
+  body.dark .collection-viewer,
+  body.dark #image-viewer__buttons button,
+  body.dark #image-viewport__container,
+  body.dark #image-aspect-ratio__buttons button,
+  body.dark .resolution,
+  body.dark .settings-menu-inner,
+  body.dark .tab,
+  body.dark #email-addresses #add-new-email input,
+  body.dark #email-addresses #add-new-email button {
+    border: 1px solid #8d8dff; }
+  body.dark .title {
+    border-bottom: 1px solid #8d8dff; }
+  body.dark #delete-collection {
+    border: none; }
 
 /*# sourceMappingURL=application.css.map */

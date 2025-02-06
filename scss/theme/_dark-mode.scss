@@ -1,5 +1,21 @@
 body.dark {
     background: $darkgrey;
+
+
+    // Background colours
+
+    main,
+    .tab,
+    #image-viewport__container,
+    #image-aspect-ratio__buttons button,
+    select,
+    #email,
+    #add-new-email button,
+    #image-viewer__buttons button,
+    .resolution {
+        background: $darkgrey;
+    }
+
     header,
     .image-viewer,
     .collection-viewer,
@@ -7,50 +23,56 @@ body.dark {
     #header-settings,
     .settings-menu-inner {
         background: $offblack;
+    }
+
+
+
+
+    // Font colours
+
+
+
+    #settings-button-close {
+        color: $blue;
+    }
+
+
+    header,
+    .image-viewer,
+    .collection-viewer,
+    .tab.current,
+    #header-settings,
+    .settings-menu-inner,
+    h1,
+    #email-addresses #add-new-email button,
+    .tab,
+    #image-aspect-ratio__buttons button,
+    select,
+    #email,
+    #add-new-email button,
+    #image-viewer__buttons button,
+    .resolution {
         color: white;
-        h1 {
-            color: white;
-        }
-
     }
 
-    #image-viewport__container {
-        background: $darkgrey;
-    }
 
-    .tab {
-        background: $darkgrey;
-        color: white;
-        border: 1px solid $blue;
 
-    }
 
-    main {
-        background: $darkgrey;
-    }
+    /// Borders
 
     header,
     .image-viewer,
     select,
     .collection-viewer,
     #image-viewer__buttons button,
-    #add-new-email input,
-    #add-new-email button,
     #image-viewport__container,
     #image-aspect-ratio__buttons button,
     .resolution,
-    .settings-menu-inner
-    {
+    .settings-menu-inner,
+    .tab,
+    #email-addresses #add-new-email input,
+    #email-addresses #add-new-email button {
         border: 1px solid $blue;
-    }
-    #email-addresses #add-new-email {
-        input,
-        button {
-            border: 1px solid $blue;
-        }
-        button {
-            color: white;
-        }
     }
 
     .title {
@@ -61,17 +83,5 @@ body.dark {
         border: none;
     }
 
-    #image-aspect-ratio__buttons button,
-    select,
-    #email,
-    #add-new-email button,
-    #image-viewer__buttons button,
-    .resolution {
-        background: $darkgrey;
-        color: white;
-    }
-    #settings-button-close {
-        color: $blue;
-    }
 }
 

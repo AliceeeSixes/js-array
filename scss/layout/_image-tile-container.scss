@@ -30,10 +30,13 @@
         cursor: pointer;
     }
     .resolution {
+        // Position/sizing
         position: absolute;
         top: 100%;
         width: 100%;
-        height: fit-content;;
+        height: fit-content;
+
+        // Colours/style
         font-size: .8em;
         background: $palegrey;
         text-align: center;

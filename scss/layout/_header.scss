@@ -7,31 +7,44 @@ header {
 }
 
 #header__inner {
+    // Position/sizing
     position: relative;
     width: 100%;
     height: 100%;
+
+    // Colours/style
+    color: $offblack;
+    text-transform: uppercase;
+
+    // Flex settings
     display: flex;
     justify-content: center;
     align-content: center;
     flex-wrap: wrap;
-    color: $offblack;
-    text-transform: uppercase;
+
 }
 
 #header-settings {
+    // Position/sizing
     position: absolute;
     right: 15px;
     bottom: 0;
     top: 0;
+
+    // Colours/style
     background: none;
     border: none;
     cursor: pointer;
     transition: transform 0.3s ease;
+
+    // Flex settings
     display: flex;
     align-content: center;
     flex-direction: column;
     justify-content: center;
     flex-wrap: wrap;
+
+
     &:hover {
         i {
         transform: rotate(180deg);

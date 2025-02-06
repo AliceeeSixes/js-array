@@ -27,6 +27,8 @@
     // Sizing/position
     width: fit-content;
     margin: auto;
+
+    // Colours/style
     padding: 10px 20px;
 
     // Flex settings
@@ -61,11 +63,16 @@
 
 
 #email-addresses {
+    // Position/sizing
     position: relative;
     width: fit-content;
     margin: auto;
+
+    // Colours/style
     padding: 20px 0;
     text-align: center;
+
+
     #email-select {
         margin-bottom: 10px;
         select {
@@ -307,5 +314,4 @@
     height: 100%;
     width: 100%;
     z-index: -5;
-
 }
