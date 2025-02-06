@@ -76,7 +76,10 @@
     #email-select {
         margin-bottom: 10px;
         select {
-            width: 300px;
+            width: 250px;
+            @media (min-width: $break-xs) {
+                width: 300px;
+            }
             box-shadow: 0 0 5px $shadow;
             border-radius: 3px;
         }
@@ -86,7 +89,10 @@
         display: flex;
         gap: 0;
         margin-bottom: 10px;
-        width: 300px;
+        width: 250px;
+        @media (min-width: $break-xs) {
+            width: 300px;
+        }
         input {
             width: 100%;
             margin: 0;

@@ -25,7 +25,10 @@
     align-content: center;
     text-align: center;
     select {
-        width: 300px;
+        width: 250px;
+        @media (min-width: $break-xs) {
+            width: 300px;
+        }
         border-radius: 3px;
     }
 }
