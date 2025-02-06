@@ -35,7 +35,10 @@ function generateImageTile(image) {
     let url = image.url; // Get url
     let dimensions = image.dimensions; // Get dimensions
 
-    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});background-size:contain;"><a  href="${url}" target="_blank"></a><button class="delete-tile"><i class="fa fa-xmark"></i></button><div class="resolution">${dimensions[1]} * ${dimensions[2]}</div></div>`);
+    let tileLink = `<a href="${url}" target="_blank"></a>`; // Link for opening image full-scale in new tab
+    let deleteButton = `<button class="delete-tile"><i class="fa fa-xmark"></i></button>`; // Button to delete tile
+    let tileResolution = `<div class="resolution">${dimensions[1]} * ${dimensions[2]}</div>`; // Text to display resolution
+    let newTile = $(`<div class="image-tile" data-url="${url}" style="background:url(${url});background-size:contain;">${tileLink}${deleteButton}${tileResolution}</div>`); // Combining parts into one DOM object
     return(newTile);
 }
 
