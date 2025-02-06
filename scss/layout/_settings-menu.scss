@@ -43,7 +43,7 @@
     flex-direction: column;
     align-content: center;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 
@@ -61,12 +61,18 @@
             padding: 0;
         }
         h4 {
-            margin: 20px;
+            margin: 0 0 10px;
         }
     }
-    gap: 20px;
+    gap: 10px;
     label {
-        margin-top: 20px;
+        align-self: center;
+        align-content: center;
+    }
+    padding: 20px 0;
+    border-bottom: 1px solid $palegrey;
+    &:last-of-type {
+        border-bottom: none;
     }
 }
 

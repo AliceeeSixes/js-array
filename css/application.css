@@ -503,14 +503,16 @@ main {
   flex-direction: column;
   align-content: center;
   flex-wrap: wrap;
-  justify-content: space-between; }
+  justify-content: center; }
 
 .settings-option {
   display: flex;
   flex-direction: row;
   align-content: top;
   flex-wrap: wrap;
-  gap: 20px; }
+  gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0; }
   .settings-option .option-text {
     width: 150px;
     text-align: center; }
@@ -519,9 +521,12 @@ main {
       margin: 0;
       padding: 0; }
     .settings-option .option-text h4 {
-      margin: 20px; }
+      margin: 0 0 10px; }
   .settings-option label {
-    margin-top: 20px; }
+    align-self: center;
+    align-content: center; }
+  .settings-option:last-of-type {
+    border-bottom: none; }
 
 /* The switch - the box around the slider */
 .switch {
@@ -583,14 +588,16 @@ body.dark {
   body.dark .image-viewer,
   body.dark .collection-viewer,
   body.dark .tab.current,
-  body.dark #header-settings {
+  body.dark #header-settings,
+  body.dark .settings-menu-inner {
     background: #111111;
     color: white; }
     body.dark header h1,
     body.dark .image-viewer h1,
     body.dark .collection-viewer h1,
     body.dark .tab.current h1,
-    body.dark #header-settings h1 {
+    body.dark #header-settings h1,
+    body.dark .settings-menu-inner h1 {
       color: white; }
   body.dark #image-viewport__container {
     background: #535353; }
@@ -609,7 +616,8 @@ body.dark {
   body.dark #add-new-email button,
   body.dark #image-viewport__container,
   body.dark #image-aspect-ratio__buttons button,
-  body.dark .resolution {
+  body.dark .resolution,
+  body.dark .settings-menu-inner {
     border: 1px solid #8d8dff; }
   body.dark #email-addresses #add-new-email input,
   body.dark #email-addresses #add-new-email button {
@@ -628,5 +636,7 @@ body.dark {
   body.dark .resolution {
     background: #535353;
     color: white; }
+  body.dark #settings-button-close {
+    color: #8d8dff; }
 
 /*# sourceMappingURL=application.css.map */

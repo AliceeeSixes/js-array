@@ -4,7 +4,8 @@ body.dark {
     .image-viewer,
     .collection-viewer,
     .tab.current,
-    #header-settings {
+    #header-settings,
+    .settings-menu-inner {
         background: $offblack;
         color: white;
         h1 {
@@ -37,7 +38,8 @@ body.dark {
     #add-new-email button,
     #image-viewport__container,
     #image-aspect-ratio__buttons button,
-    .resolution
+    .resolution,
+    .settings-menu-inner
     {
         border: 1px solid $blue;
     }
@@ -67,6 +69,9 @@ body.dark {
     .resolution {
         background: $darkgrey;
         color: white;
+    }
+    #settings-button-close {
+        color: $blue;
     }
 }
 
